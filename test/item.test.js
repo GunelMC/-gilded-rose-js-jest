@@ -1,4 +1,4 @@
-const Item = require("../src/item");
+const Item = require('../src/item');
 
 describe('Item', () => {
   let item;
@@ -18,5 +18,4 @@ describe('Item', () => {
   it('has a quality', () => {
     expect(item.quality).toBe(10);
   });
-
 });
