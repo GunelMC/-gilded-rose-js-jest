@@ -7,4 +7,12 @@ describe("Shop", function() {
     const items = gildedRose.updateQuality();
     expect(items[0].name).toBe("foo");
   });
+
+  it("should decrease quality by 1", function() {
+    let cheese = new Item("Cheese", 2, 2)
+    let gildedRose = new Shop([ cheese ]);
+    let items = gildedRose.updateQuality();
+    expect(items[0].quality).toEqual(1);
+  });
+  
 });
