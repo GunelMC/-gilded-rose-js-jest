@@ -2,12 +2,14 @@
     "env": {
         "commonjs": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base",
         "plugin:jest/recommended",
-        "plugin:jest/style"
+        "plugin:jest/style",
+        "eslint:recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 12
