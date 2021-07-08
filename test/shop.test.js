@@ -35,9 +35,20 @@ describe('Shop', () => {
   });
 
   describe('Aged Brie', ()=> {
+    let brieDouble;
+
+    describe('when it gets older', ()=> {
+      it('increases quality by 1', () => {
+        brieDouble = { name: 'Aged Brie', quality: 10 };
+        gildedRose = new Shop([brieDouble]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toBe(11);
+      });
+    });
+
     it('quality can\'t go above 50 for regular items', () => {
-      cheeseDouble = { name: 'Aged Brie', quality: 49 };
-      gildedRose = new Shop([cheeseDouble]);
+      brieDouble = { name: 'Aged Brie', quality: 49 };
+      gildedRose = new Shop([brieDouble]);
       items = gildedRose.updateQuality();
       items = gildedRose.updateQuality();
       expect(items[0].quality).toBe(50);
