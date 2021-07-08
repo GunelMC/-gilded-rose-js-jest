@@ -55,7 +55,7 @@ describe('Shop', () => {
       });
     });
 
-    it('quality can\'t go above 50 for regular items', () => {
+    it('quality can\'t go above 50', () => {
       brieDouble = { name: 'Aged Brie', quality: 49 };
       gildedRose = new Shop([brieDouble]);
       items = gildedRose.updateQuality();
@@ -94,11 +94,29 @@ describe('Shop', () => {
       });
     });
 
-    it('quality can\'t go above 50 for regular items', () => {
+    it('quality can\'t go above 50', () => {
       backstagePasses = { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 5, quality: 48 };
       gildedRose = new Shop([backstagePasses]);
       items = gildedRose.updateQuality();
       expect(items[0].quality).toBe(50);
+    });
+  });
+
+  describe('Sulfuras', ()=> {
+    let sulfurasDouble;
+
+    beforeEach(() => {
+      sulfurasDouble = { name: 'Sulfuras, Hand of Ragnaros', sellIn: 60, quality: 80 };
+      gildedRose = new Shop([sulfurasDouble]);
+      items = gildedRose.updateQuality();
+    });
+
+    it('its quality does not change', () => {
+      expect(items[0].quality).toBe(80);
+    });
+
+    it('its sellIn does not change', () => {
+      expect(items[0].sellIn).toBe(60);
     });
   });
 });
