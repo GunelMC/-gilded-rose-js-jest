@@ -5,7 +5,7 @@ This is the Gilded Rose kata in JavaScript with Jest
 ## Getting started
 
 1. Clone this repo git clone `https://github.com/GunelMC/-gilded-rose-js-jest.git`
-2. Change into the directory gilded-rose-js-jest
+2. Change into the directory gilded-rose-js-jest: `cd gilded-rose-js-jest`
 3. Run npm to install dependencies `npm install`
 
 ## Running tests
@@ -40,4 +40,5 @@ Finally, I have implemented the new 'Conjured Item' described in the specificati
 
 When writing test cases for the new implementation, I used a combination of the original specification and the behaviour I could observe in the the stdout.gr file of texttests and TexttestFixture.
 
+Test Coverage: > 97%
 
