@@ -34,10 +34,10 @@ describe('Shop', () => {
     });
   });
 
-  describe('Aged Brie', ()=> {
+  describe('Aged Brie', () => {
     let brieDouble;
 
-    describe('when it gets older', ()=> {
+    describe('when it gets older', () => {
       it('increases quality by 1', () => {
         brieDouble = { name: 'Aged Brie', quality: 10 };
         gildedRose = new Shop([brieDouble]);
@@ -46,7 +46,7 @@ describe('Shop', () => {
       });
     });
 
-    describe('when it is past sellIn date', ()=> {
+    describe('when it is past sellIn date', () => {
       it('increases quality by 2', () => {
         brieDouble = { name: 'Aged Brie', sellIn: 0, quality: 40 };
         gildedRose = new Shop([brieDouble]);
@@ -64,7 +64,7 @@ describe('Shop', () => {
     });
   });
 
-  describe('Backstage passes', ()=> {
+  describe('Backstage passes', () => {
     let backstagePasses;
 
     describe('when its sellIn is over 10 days left', () => {
@@ -102,7 +102,7 @@ describe('Shop', () => {
     });
   });
 
-  describe('Sulfuras', ()=> {
+  describe('Sulfuras', () => {
     let sulfurasDouble;
 
     beforeEach(() => {
@@ -117,6 +117,16 @@ describe('Shop', () => {
 
     it('its sellIn does not change', () => {
       expect(items[0].sellIn).toBe(60);
+    });
+  });
+
+  describe('Conjured Items', () => {
+    let conjuredItemDouble;
+    it('decreases quality by 2', () => {
+      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: 10, quality: 7 }
+      gildedRose = new Shop([conjuredItemDouble]);
+      items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(5);
     });
   });
 });
