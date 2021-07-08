@@ -43,7 +43,11 @@ module.exports = class Shop {
   }
 
   _decreaseItemQuality(item) {
-    item.quality -= 1;
+    if (this._isConjuredItem(item)) {
+      item.quality -= 2;
+    } else {
+      item.quality -= 1;
+    }
   }
 
   _updateAgedBrieQuality(item) {
@@ -61,5 +65,9 @@ module.exports = class Shop {
     else if (sellIn > 5) item.quality += 2;
     else if (sellIn <= 5) item.quality += 3;
     if (item.quality > this._MAX_QUALITY) item.quality = this._MAX_QUALITY;
+  }
+
+  _isConjuredItem(item) {
+    return item.name.includes('Conjured');
   }
 };
