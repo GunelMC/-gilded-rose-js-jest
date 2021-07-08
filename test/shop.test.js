@@ -76,6 +76,15 @@ describe('Shop', () => {
       });
     });
 
+    describe('when its sellIn is between 10 and 5 days', () => {
+      it('increases quality by 2', () => {
+        backstagePasses = { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 8, quality: 30 };
+        gildedRose = new Shop([backstagePasses]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toBe(32);
+      });
+    });
+
     it('quality can\'t go above 50 for regular items', () => {
       backstagePasses = { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 5, quality: 48 };
       gildedRose = new Shop([backstagePasses]);
