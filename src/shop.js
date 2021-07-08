@@ -24,9 +24,9 @@ module.exports = class Shop {
 
         // this is a new if condition
         if (!isSpecialQualityItem) {
-          this.decreaseItemQuality(item);
+          this._decreaseItemQuality(item);
         } else if (isSpecialQualityItem && !isEpicItem) {
-          this.increaseItemQuality(item);
+          this._increaseItemQuality(item);
         }
       }
     });
@@ -34,19 +34,19 @@ module.exports = class Shop {
     return this.items;
   }
 
-  increaseItemQuality(item) {
+  _increaseItemQuality(item) {
     if (item.name === 'Aged Brie') {
-      this.updateAgedBrieQuality(item);
+      this._updateAgedBrieQuality(item);
     } else if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
-      this.updateBackstagePassesQuality(item);
+      this._updateBackstagePassesQuality(item);
     }
   }
 
-  decreaseItemQuality(item) {
+  _decreaseItemQuality(item) {
     item.quality -= 1;
   }
 
-  updateAgedBrieQuality(item) {
+  _updateAgedBrieQuality(item) {
     if (item.sellIn < 0) {
       item.quality += 2;
     } else {
@@ -54,7 +54,7 @@ module.exports = class Shop {
     }
   }
 
-  updateBackstagePassesQuality(item) {
+  _updateBackstagePassesQuality(item) {
     const sellIn = item.sellIn + 1;
     if (sellIn < 0) item.quality = 0;
     else if (sellIn > 10) item.quality += 1;
