@@ -8,11 +8,13 @@ const EPIC_ITEMS = ['Sulfuras, Hand of Ragnaros'];
 module.exports = class Shop {
   constructor(items = []) {
     this.items = items;
+    this._MIN_QUALITY = 0;
+    this._MAX_QUALITY = 50;
   }
 
   updateQuality() {
     this.items.forEach((item) => {
-      if (item.quality < 50 && item.quality > 0) {
+      if (item.quality < this._MAX_QUALITY && item.quality > this._MIN_QUALITY) {
         const isEpicItem = EPIC_ITEMS.includes(item.name);
         const isSpecialQualityItem = SPECIAL_QUALITY_ITEMS.includes(item.name);
 
@@ -58,6 +60,6 @@ module.exports = class Shop {
     else if (sellIn > 10) item.quality += 1;
     else if (sellIn > 5) item.quality += 2;
     else if (sellIn <= 5) item.quality += 3;
-    if (item.quality > 50) item.quality = 50;
+    if (item.quality > this._MAX_QUALITY) item.quality = this._MAX_QUALITY;
   }
 };
