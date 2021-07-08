@@ -67,6 +67,15 @@ describe('Shop', () => {
   describe('Backstage passes', ()=> {
     let backstagePasses;
 
+    describe('when its sellIn is over 10 days left', () => {
+      it('increases quality by 1', () => {
+        backstagePasses = { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 11, quality: 30 };
+        gildedRose = new Shop([backstagePasses]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toBe(31);
+      });
+    });
+
     it('quality can\'t go above 50 for regular items', () => {
       backstagePasses = { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 5, quality: 48 };
       gildedRose = new Shop([backstagePasses]);
