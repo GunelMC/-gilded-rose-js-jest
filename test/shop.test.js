@@ -46,6 +46,15 @@ describe('Shop', () => {
       });
     });
 
+    describe('when it is past sellIn date', ()=> {
+      it('increases quality by 2', () => {
+        brieDouble = { name: 'Aged Brie', sellIn: 0, quality: 40 };
+        gildedRose = new Shop([brieDouble]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toBe(42);
+      });
+    });
+
     it('quality can\'t go above 50 for regular items', () => {
       brieDouble = { name: 'Aged Brie', quality: 49 };
       gildedRose = new Shop([brieDouble]);
