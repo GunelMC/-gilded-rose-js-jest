@@ -1,6 +1,6 @@
 # Gilded Rose
 
-This is the Gilded Rose kata in JavaScript with Jest
+This is the [Gilded Rose kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) in [JavaScript with Jest](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/js-jest).
 
 ## Getting started
 
@@ -32,7 +32,7 @@ npm run test:coverage
 
 I began by splitting my two classes (Item and Shop) into seperate files. After some minor adjustments to the code, I added new unit tests into Item class. I then converted TextTest Golden Master test into Jest integration to compare the overall expected and actual output before writing new tests or refactoring the legacy code. 
 
-Following this, I started to test-drive each of the specifications outlined in the acceptance criteria. I began by writing tests for core cases - that is regular items, and moving on to the special quality items like Sulfuras and Aged Brie. Once I was satisfied that my tests covered most cases laid out in the specifications, I started refactoring the legacy code. 
+Following this, I started to test-drive each of the specifications outlined in the acceptance criteria and adding unit tests for my Shop class. I began by writing tests for core cases - that is regular items, and moving on to the special quality items like Sulfuras and Aged Brie. Once I was satisfied that my tests covered most cases laid out in the specifications, I started refactoring the legacy code. 
 
 While refactoring, I tried to extract logic into private helper methods with descriptive names to make the code my readable. I also grouped the logic relating to different item categories to get rid of the duplicate code and keep the code DRY. 
 
