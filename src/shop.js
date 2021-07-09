@@ -43,11 +43,9 @@ module.exports = class Shop {
   }
 
   _decreaseItemQuality(item) {
-    if (item.quality === 0) {
-      return;
-    }
+    if (item.quality === 0) return;
     if (this._isConjuredItem(item)) {
-      item.quality -= 2;
+      this._decreaseConjuredItemQuality(item);
     } else {
       item.quality -= 1;
     }
@@ -72,5 +70,13 @@ module.exports = class Shop {
 
   _isConjuredItem(item) {
     return item.name.includes('Conjured');
+  }
+
+  _decreaseConjuredItemQuality(item) {
+    if (item.sellIn >= 0) {
+      item.quality -= 1;
+    } else {
+      item.quality -= 2;
+    }
   }
 };
