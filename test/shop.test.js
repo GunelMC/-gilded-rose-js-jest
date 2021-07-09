@@ -139,21 +139,21 @@ describe('Shop', () => {
   describe('Conjured Items', () => {
     let conjuredItemDouble;
     it('decreases quality by 2 past sellIn date', () => {
-      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: -1, quality: 7 }
+      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: -1, quality: 7 };
       gildedRose = new Shop([conjuredItemDouble]);
       items = gildedRose.updateQuality();
       expect(items[0].quality).toBe(5);
     });
 
     it('decreases quality by 1 before sellIn date', () => {
-      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: 2, quality: 5 }
+      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: 2, quality: 5 };
       gildedRose = new Shop([conjuredItemDouble]);
       items = gildedRose.updateQuality();
       expect(items[0].quality).toBe(4);
     });
 
     it('quality can\'t go below 0', () => {
-      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: -1, quality: 0 }
+      conjuredItemDouble = { name: 'Conjured Elixir of the Mongoose', sellIn: -1, quality: 0 };
       gildedRose = new Shop([conjuredItemDouble]);
       items = gildedRose.updateQuality();
       expect(items[0].quality).toBe(0);

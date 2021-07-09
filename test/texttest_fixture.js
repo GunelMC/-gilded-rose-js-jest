@@ -19,7 +19,7 @@ const days = Number(process.argv[2]) || 5;
 const gildedRose = new Shop(items);
 
 console.log('OMGHAI!');
-for (let day = 0; day < days; day++) {
+for (let day = 0; day < days; day += 1) {
   console.log(`\n-------- day ${day} --------`);
   console.log('name, sellIn, quality');
   items.forEach((item) => console.log(`${item.name}, ${item.sellIn}, ${item.quality}`));
