@@ -16,12 +16,28 @@ describe('Shop', () => {
       expect(items[0].name).toBe('cheese');
     });
 
-    it('should decrease quality by 1', () => {
+    it('should decrease sell in by 1', () => {
+      expect(items[0].sellIn).toBe(29);
+    });
+
+    it('should decrease quality by 1 before SellIn date', () => {
       expect(items[0].quality).toEqual(9);
     });
 
-    it('should decrease sell in by 1', () => {
-      expect(items[0].sellIn).toBe(29);
+    describe('when sellIn is 0 or less', () => {
+      it('should decrease quality by 2 when sellIn is negative', () => {
+        cheeseDouble = { name: 'cheese', sellIn: -1, quality: 10 };
+        gildedRose = new Shop([cheeseDouble]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(8);
+      });
+
+      it('should decrease quality by 2 when sellIn is 0', () => {
+        cheeseDouble = { name: 'cheese', sellIn: 0, quality: 10 };
+        gildedRose = new Shop([cheeseDouble]);
+        items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(8);
+      });
     });
   });
 
