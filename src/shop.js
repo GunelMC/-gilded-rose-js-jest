@@ -14,7 +14,7 @@ module.exports = class Shop {
 
   updateQuality() {
     this.items.forEach((item) => {
-      if (item.quality < this._MAX_QUALITY && item.quality > this._MIN_QUALITY) {
+      if (item.quality < this._MAX_QUALITY && item.quality >= this._MIN_QUALITY) {
         const isEpicItem = EPIC_ITEMS.includes(item.name);
         const isSpecialQualityItem = SPECIAL_QUALITY_ITEMS.includes(item.name);
 
@@ -43,6 +43,9 @@ module.exports = class Shop {
   }
 
   _decreaseItemQuality(item) {
+    if (item.quality === 0) {
+      return;
+    }
     if (this._isConjuredItem(item)) {
       item.quality -= 2;
     } else {
