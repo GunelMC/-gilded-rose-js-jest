@@ -14,7 +14,7 @@ module.exports = class Shop {
 
   updateQuality() {
     this.items.forEach((item) => {
-      if (item.quality < this._MAX_QUALITY && item.quality >= this._MIN_QUALITY) {
+      if (item.quality <= this._MAX_QUALITY && item.quality >= this._MIN_QUALITY) {
         const isEpicItem = EPIC_ITEMS.includes(item.name);
         const isSpecialQualityItem = SPECIAL_QUALITY_ITEMS.includes(item.name);
 
@@ -52,6 +52,7 @@ module.exports = class Shop {
   }
 
   _updateAgedBrieQuality(item) {
+    if (item.quality === 50) return;
     if (item.sellIn < 0) {
       item.quality += 2;
     } else {
@@ -61,9 +62,9 @@ module.exports = class Shop {
 
   _updateBackstagePassesQuality(item) {
     if (item.sellIn < 0) item.quality = 0;
-    else if (item.sellIn > 10) item.quality += 1;
-    else if (item.sellIn > 5) item.quality += 2;
-    else if (item.sellIn <= 5) item.quality += 3;
+    else if (item.sellIn < 5) item.quality += 3;
+    else if (item.sellIn < 10) item.quality += 2;
+    else item.quality += 1;
     if (item.quality > this._MAX_QUALITY) item.quality = this._MAX_QUALITY;
   }
 
