@@ -38,7 +38,9 @@ While refactoring, I tried to extract logic into private helper methods with des
 
 Finally, I have implemented the new 'Conjured Item' described in the specification.
 
-When writing test cases for the new implementation, I used a combination of the original specification and the behaviour I could observe in the the stdout.gr file of texttests and TexttestFixture.
+When writing test cases for the new implementation, I used a combination of the original specifications and the behaviour I could observe in Golden Master (expected output) text file provided for [Text-Based Approval Testing](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests) and sample test data provided in TexttestFixture folder.
 
-Test Coverage: > 97%
+All tests are passing. Test Coverage: > 100%
 
+## Screen Preview
+![Screen preview](images/guilded_rose_screenshot.png)
