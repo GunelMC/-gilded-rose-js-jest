@@ -4,6 +4,13 @@ This is the [Gilded Rose kata](https://github.com/emilybache/GildedRose-Refactor
 
 ## Getting started
 
+### Prerequisites
+
+* Node.js
+* npm
+
+### Installation
+
 1. Clone this repo git clone `https://github.com/GunelMC/-gilded-rose-js-jest.git`
 2. Change into the directory gilded-rose-js-jest: `cd gilded-rose-js-jest`
 3. Run npm to install dependencies `npm install`
