@@ -60,11 +60,10 @@ module.exports = class Shop {
   }
 
   _updateBackstagePassesQuality(item) {
-    const sellIn = item.sellIn + 1;
-    if (sellIn < 0) item.quality = 0;
-    else if (sellIn > 10) item.quality += 1;
-    else if (sellIn > 5) item.quality += 2;
-    else if (sellIn <= 5) item.quality += 3;
+    if (item.sellIn < 0) item.quality = 0;
+    else if (item.sellIn > 10) item.quality += 1;
+    else if (item.sellIn > 5) item.quality += 2;
+    else if (item.sellIn <= 5) item.quality += 3;
     if (item.quality > this._MAX_QUALITY) item.quality = this._MAX_QUALITY;
   }
 
